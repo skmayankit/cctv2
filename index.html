@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SecureView | Professional CCTV Systems</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Google Font Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+    body { background-color: #f8fafc; }
+    .navbar-brand { font-weight: 700; letter-spacing: -0.02em; }
+    .hero-section {
+      background: linear-gradient(145deg, #0b1c2f 0%, #142b44 100%);
+      color: white;
+      padding: 4rem 0;
+    }
+    .hero-title {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .hero-subtitle { font-size: 1.2rem; opacity: 0.9; }
+    .badge-advantage {
+      background: rgba(255,255,255,0.15);
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      backdrop-filter: blur(4px);
+    }
+    .camera-shape {
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none"><path d="M350 200L500 120L650 200V380L500 480L350 380V200Z" fill="white" fill-opacity="0.1" stroke="white" stroke-width="2"/><circle cx="500" cy="280" r="50" fill="white" fill-opacity="0.1" stroke="white" stroke-width="2"/><circle cx="500" cy="280" r="20" fill="white" fill-opacity="0.3"/></svg>');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      min-height: 280px;
+    }
+    .section-title { font-weight: 700; color: #0b1c2f; }
+    .card-hover {
+      transition: all 0.2s ease-in-out;
+      border: none;
+      border-radius: 1.2rem;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.04);
+    }
+    .card-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 40px rgba(0,32,64,0.12);
+    }
+    .icon-circle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background: #eef4ff;
+      color: #0f2b45;
+      border-radius: 30px;
+      font-size: 28px;
+    }
+    .btn-cta {
+      background: #ff8a4c;
+      border: none;
+      color: #0b1c2f;
+      font-weight: 600;
+      padding: 14px 36px;
+      border-radius: 50px;
+      transition: 0.2s;
+      box-shadow: 0 10px 20px -5px rgba(255, 138, 76, 0.3);
+    }
+    .btn-cta:hover {
+      background: #ff9f66;
+      color: #0b1c2f;
+      transform: scale(1.02);
+    }
+    .btn-outline-light-custom {
+      border: 2px solid rgba(255,255,255,0.4);
+      color: white;
+      border-radius: 40px;
+      padding: 12px 32px;
+      font-weight: 600;
+    }
+    .btn-outline-light-custom:hover {
+      background: white;
+      color: #0b1c2f;
+      border-color: white;
+    }
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #0b1c2f;
+    }
+    .footer-bg { background: #0f1e2f; color: #b0c4de; }
+    .gradient-badge {
+      background: linear-gradient(135deg, #e6f0ff, #ffffff);
+      color: #0f2b45;
+      border-radius: 100px;
+      padding: 4px 16px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-block;
+    }
+    /* Image card enhancements */
+    .feature-img-card {
+      border-radius: 1.5rem;
+      overflow: hidden;
+      transition: 0.25s ease;
+      border: none;
+      box-shadow: 0 20px 30px -10px rgba(0,20,40,0.15);
+      background: #fff;
+    }
+    .feature-img-card .img-container {
+      height: 260px;
+      width: 100%;
+      background: #f0f4fa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .feature-img-card img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      transition: transform 0.3s;
+    }
+    .feature-img-card:hover img { transform: scale(1.02); }
+    .feature-tag {
+      background: #ff8a4c;
+      color: #0b1c2f;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 4px 14px;
+      border-radius: 40px;
+    }
+    .image-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #667b8d, #34495e);
+      color: white;
+      font-weight: 600;
+    }
+    .image-placeholder i {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg bg-white py-3 border-bottom border-light">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <i class="bi bi-shield-shaded fs-1 me-2" style="color:#0f2b45;"></i>
+      <span style="color:#0f2b45; font-weight: 700; font-size: 1.6rem;">Secure<span style="color:#ff8a4c;">View</span></span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-center">
+        <li class="nav-item"><a href="#" class="nav-link px-3 fw-medium">Solutions</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-3 fw-medium">Cameras</a></li>
+        <li class="nav-item"><a href="#" class="nav-link px-3 fw-medium">Support</a></li>
+        <li class="nav-item ms-2">
+          <a href="#" class="btn btn-cta px-4 py-2" style="border-radius: 40px; padding: 10px 24px !important;">Get quote</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="badge-advantage text-white mb-4 d-inline-block"><i class="bi bi-camera-reels-fill me-2"></i>24/7 security · AI analytics</span>
+        <h1 class="hero-title mb-4">Smart CCTV <br>for ultimate peace of mind</h1>
+        <p class="hero-subtitle mb-4">Protect what matters most with 4K AI-powered cameras, night vision, and instant alerts. Trusted by 5,000+ businesses & homes.</p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#" class="btn btn-cta btn-lg"><i class="bi bi-telephone-fill me-2"></i>Free security review</a>
+          <a href="#" class="btn btn-outline-light-custom"><i class="bi bi-play-circle me-2"></i>See live demo</a>
+        </div>
+        <div class="d-flex gap-4 mt-5">
+          <div><i class="bi bi-check-circle-fill text-warning me-1"></i> <span class="fw-light text-white-50">No contracts</span></div>
+          <div><i class="bi bi-check-circle-fill text-warning me-1"></i> <span class="fw-light text-white-50">Free installation</span></div>
+          <div><i class="bi bi-check-circle-fill text-warning me-1"></i> <span class="fw-light text-white-50">24/7 support</span></div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="camera-shape w-100"></div>
+        <div class="bg-white bg-opacity-10 p-3 rounded-4 text-white d-flex align-items-center gap-3 mt-3" style="backdrop-filter: blur(4px);">
+          <i class="bi bi-camera-video fs-1"></i>
+          <div><strong>AI SmartCam 360</strong><br>4K UltraHD · Colour night vision</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust badges / stats -->
+<section class="py-5 bg-white border-bottom">
+  <div class="container">
+    <div class="row g-4 text-center">
+      <div class="col-md-3 col-6">
+        <div class="stat-number">15+ yrs</div>
+        <span class="text-secondary">security innovation</span>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="stat-number">5,200+</div>
+        <span class="text-secondary">cameras installed</span>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="stat-number">98%</div>
+        <span class="text-secondary">client retention</span>
+      </div>
+      <div class="col-md-3 col-6">
+        <div class="stat-number">24/7</div>
+        <span class="text-secondary">pro monitoring</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMAGES SECTION - with proper paths and fallbacks -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="gradient-badge"><i class="bi bi-image me-1"></i>solutions in action</span>
+      <h2 class="section-title mt-3">Professional security at a glance</h2>
+      <p class="text-secondary col-lg-6 mx-auto">Cutting‑edge CCTV with expert installation — exactly as shown.</p>
+    </div>
+    <div class="row g-4">
+      <!-- Image 1 (c1.jpg) -->
+      <div class="col-md-4">
+        <div class="card feature-img-card h-100">
+          <div class="img-container">
+            <img src="c1.jpg" alt="Surveillance Expert with WiFi connectivity and 24/7 protection" 
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'image-placeholder\'><i class=\'bi bi-camera-video\'></i><span>c1.jpg</span><small class=\'mt-2\'><br>Surveillance Expert<br>24*7 Protection<br>WIFI Connectivity</small></div>';">
+          </div>
+          <div class="card-body bg-white">
+            <span class="feature-tag mb-2 d-inline-block"><i class="bi bi-wifi me-1"></i>WIFI Connectivity</span>
+            <h5 class="fw-bold mt-2">Surveillance Expert</h5>
+            <p class="text-secondary mb-1"><i class="bi bi-shield-check me-1"></i> 24*7 Protection</p>
+            <p class="text-secondary"><i class="bi bi-camera-video me-1"></i> Includes LOGO branding</p>
+          </div>
+        </div>
+      </div>
+      <!-- Image 2 (c2.jpg) -->
+      <div class="col-md-4">
+        <div class="card feature-img-card h-100">
+          <div class="img-container">
+            <img src="c2.jpg" alt="24/7 Security CCTV System with free installation" 
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'image-placeholder\'><i class=\'bi bi-shield-lock\'></i><span>c2.jpg</span><small class=\'mt-2\'><br>24-7 Security<br>CCTV System<br>Free Installation</small></div>';">
+          </div>
+          <div class="card-body bg-white">
+            <span class="feature-tag mb-2 d-inline-block"><i class="bi bi-tools me-1"></i>Free Installation</span>
+            <h5 class="fw-bold mt-2">Hyper HD Protection</h5>
+            <p class="text-secondary mb-1"><i class="bi bi-clock-history me-1"></i> 24/7 Security + Maintenance</p>
+            <p class="text-secondary"><i class="bi bi-hdd-stack me-1"></i> HYPER HD CAMERA included</p>
+          </div>
+        </div>
+      </div>
+      <!-- Image 3 (c3.jpg) -->
+      <div class="col-md-4">
+        <div class="card feature-img-card h-100">
+          <div class="img-container">
+            <img src="c3.jpg" alt="Secure your properties with free installation and maintenance" 
+                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'image-placeholder\'><i class=\'bi bi-house-shield\'></i><span>c3.jpg</span><small class=\'mt-2\'><br>SECURE YOUR PROPERTIES<br>Free Installation<br>Proper Maintenance</small></div>';">
+          </div>
+          <div class="card-body bg-white">
+            <span class="feature-tag mb-2 d-inline-block"><i class="bi bi-shield-lock me-1"></i>Secure now</span>
+            <h5 class="fw-bold mt-2">Secure Your Properties</h5>
+            <p class="text-secondary mb-1"><i class="bi bi-wrench me-1"></i> Free Installation & Maintenance</p>
+            <p class="text-secondary"><i class="bi bi-house-check me-1"></i> Complete peace of mind</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+</section>
+
+<!-- Key Features -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="gradient-badge"><i class="bi bi-droplet me-1"></i>why SecureView</span>
+      <h2 class="section-title mt-3">Security that works around the clock</h2>
+      <p class="text-secondary col-lg-6 mx-auto">Advanced detection, crystal clear footage, and seamless control from your phone.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card card-hover p-4 h-100 border-0">
+          <div class="icon-circle mb-4"><i class="bi bi-eye-fill"></i></div>
+          <h4 class="fw-bold">4K AI detection</h4>
+          <p class="text-secondary">Distinguish people, vehicles, and animals. Reduce false alerts by 95% with smart analytics.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-hover p-4 h-100 border-0">
+          <div class="icon-circle mb-4"><i class="bi bi-moon-stars-fill"></i></div>
+          <h4 class="fw-bold">Full colour night vision</h4>
+          <p class="text-secondary">Starlight sensors and built-in LEDs show every detail in colour, even in total darkness.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-hover p-4 h-100 border-0">
+          <div class="icon-circle mb-4"><i class="bi bi-cloud-check-fill"></i></div>
+          <h4 class="fw-bold">Cloud & local backup</h4>
+          <p class="text-secondary">Dual recording to microSD and encrypted cloud. Access live feed from anywhere.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Package / pricing cards -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-5 mb-4 mb-lg-0">
+        <span class="gradient-badge mb-3"><i class="bi bi-tag"></i> special offer</span>
+        <h2 class="section-title">Protect your home or business</h2>
+        <p class="text-secondary lead">Custom packages with professional installation. No hidden fees.</p>
+        <div class="d-flex align-items-center mt-4">
+          <i class="bi bi-shield-check fs-1 me-3" style="color:#ff8a4c;"></i>
+          <div><strong>30-day money-back guarantee</strong><br><span class="text-secondary">Plus 2-year warranty</span></div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card card-hover border-0 h-100 p-3">
+              <div class="card-body">
+                <i class="bi bi-house-door fs-1" style="color:#0f2b45;"></i>
+                <h4 class="fw-bold mt-3">Essential Home</h4>
+                <p class="text-secondary">4 x 4K cams, 2-way audio, 1TB NVR</p>
+                <h3 class="fw-bold">$799 <span class="fs-6 fw-normal text-secondary">installed</span></h3>
+                <hr>
+                <ul class="list-unstyled">
+                  <li><i class="bi bi-check-lg text-success me-2"></i> Night vision colour</li>
+                  <li><i class="bi bi-check-lg text-success me-2"></i> Phone alerts</li>
+                  <li><i class="bi bi-check-lg text-success me-2"></i> 7-day cloud trial</li>
+                </ul>
+                <a href="#" class="btn btn-outline-dark w-100 rounded-pill mt-3">Choose plan</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card card-hover border-0 h-100 p-3 position-relative" style="border: 2px solid #ff8a4c !important;">
+              <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-warning text-dark px-4 py-2">MOST POPULAR</span>
+              <div class="card-body pt-4">
+                <i class="bi bi-building fs-1" style="color:#0f2b45;"></i>
+                <h4 class="fw-bold mt-3">Business 360</h4>
+                <p class="text-secondary">8 x 4K cams, AI analytics, 4TB NVR</p>
+                <h3 class="fw-bold">$1,599 <span class="fs-6 fw-normal text-secondary">installed</span></h3>
+                <hr>
+                <ul class="list-unstyled">
+                  <li><i class="bi bi-check-lg text-success me-2"></i> Vehicle/face detection</li>
+                  <li><i class="bi bi-check-lg text-success me-2"></i> 30-day cloud retention</li>
+                  <li><i class="bi bi-check-lg text-success me-2"></i> Advanced motion zones</li>
+                </ul>
+                <a href="#" class="btn btn-cta w-100 rounded-pill mt-3">Get quote</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="section-title text-center mb-5">Trusted by security pros</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="border rounded-4 p-4 h-100 bg-white">
+          <div class="d-flex gap-2 text-warning mb-3">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+          </div>
+          <p class="fw-light">“The AI alerts actually work — no more false alarms. The 4K clarity helped identify a license plate instantly.”</p>
+          <div class="d-flex align-items-center mt-3">
+            <i class="bi bi-person-circle fs-3 me-2"></i>
+            <div><strong>— Mark R.</strong><br><span class="small text-secondary">Warehouse manager</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="border rounded-4 p-4 h-100 bg-white">
+          <div class="d-flex gap-2 text-warning mb-3">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+          </div>
+          <p class="fw-light">“Installation was super clean — no messy wires. Night vision is like daylight.”</p>
+          <div class="d-flex align-items-center mt-3">
+            <i class="bi bi-person-circle fs-3 me-2"></i>
+            <div><strong>— Lisa M.</strong><br><span class="small text-secondary">Homeowner</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="border rounded-4 p-4 h-100 bg-white">
+          <div class="d-flex gap-2 text-warning mb-3">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+          </div>
+          <p class="fw-light">“We monitor 4 retail stores from one dashboard. Cloud backup saved us during a break‑in.”</p>
+          <div class="d-flex align-items-center mt-3">
+            <i class="bi bi-person-circle fs-3 me-2"></i>
+            <div><strong>— James T.</strong><br><span class="small text-secondary">Retail group</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="py-5" style="background: linear-gradient(120deg, #0f2b45, #173b5e);">
+  <div class="container">
+    <div class="row justify-content-center text-center text-white">
+      <div class="col-lg-8">
+        <i class="bi bi-camera-video-off fs-1 mb-3"></i>
+        <h2 class="display-5 fw-bold mb-3">Free on‑site security review</h2>
+        <p class="lead mb-4">One of our consultants will visit your property, assess risks, and propose a tailored system — no obligation.</p>
+        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+          <a href="#" class="btn btn-cta btn-lg px-5"><i class="bi bi-calendar-check me-2"></i>Book free demo</a>
+          <a href="#" class="btn btn-outline-light btn-lg px-5"><i class="bi bi-headset me-2"></i>Call 833-555-0123</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer-bg pt-5 pb-4">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <h4 class="text-white d-flex align-items-center"><i class="bi bi-shield-shaded me-2"></i>SecureView</h4>
+        <p class="mt-3 small">Next‑gen CCTV systems for home and business. Trusted since 2009.</p>
+      </div>
+      <div class="col-md-2">
+        <h6 class="text-white">Solutions</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-1"><a href="#" class="text-secondary text-decoration-none">Home security</a></li>
+          <li class="mb-1"><a href="#" class="text-secondary text-decoration-none">Business CCTV</a></li>
+          <li class="mb-1"><a href="#" class="text-secondary text-decoration-none">AI analytics</a></li>
+        </ul>
+      </div>
+      <div class="col-md-2">
+        <h6 class="text-white">Support</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-1"><a href="#" class="text-secondary text-decoration-none">Installation guides</a></li>
+          <li class="mb-1"><a href="#" class="text-secondary text-decoration-none">Warranty</a></li>
+          <li class="mb-1"><a href="#" class="text-secondary text-decoration-none">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h6 class="text-white">Stay protected</h6>
+        <div class="input-group mb-3">
+          <input type="email" class="form-control bg-dark border-secondary text-white" placeholder="Email for security tips">
+          <button class="btn btn-cta" type="button">Subscribe</button>
+        </div>
+        <div class="d-flex gap-3 fs-5">
+          <a href="#" class="text-secondary"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-secondary"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-secondary"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+    <hr class="border-secondary mt-4">
+    <div class="row small text-secondary">
+      <div class="col text-center">© 2025 SecureView — 24/7 peace of mind</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
